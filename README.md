@@ -1,6 +1,6 @@
-# Local Network Chatting App
+# Python Live Chat App
 
-This is a local network chatting program written in Python using Flask, Flask-SQLAlchemy, and SocketIO.
+This is a live chatting program written in Python using Flask, Flask-SQLAlchemy, and SocketIO.
 
 ## Features
 - Allows users to chat with each other within the local network
