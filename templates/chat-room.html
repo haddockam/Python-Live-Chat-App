@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block title %}chat room{% endblock %}
+{% block style %}<link rel="stylesheet" href="/static/css/chat-room.css" >{% endblock %}
+
+{% block body %}
+<div class="chat-box">
+    <h2>Chat Room code: {{room_code}}</h2>
+        
+    <div class="messages" id="messages"></div>
+    <div class="inputs">
+        <input type="text" rows='3' placeholder="Message" name="message" id="message" />
+        <button type="button" name="send" id="send-btn" onClick="sendMessage()" >Send</button>
+    </div>
+</div>
+<form method="POST" > <!-- If user clicks on 'log out'.-->
+    <div class="menu" >
+        <button type="submit" class="log-out" name="logout" >Log out</button>
+    </div>
+</form>
+{% endblock %}
+
+{% block javascript %} <!-- javascript code-->
+<script type="text/javascript" >
+
+    var socketio = io();
+
+    const messages = document.getElementById('messages');
+
+    function createMessage(name, msg) {
+        const content= `
+        <div class="text">
+            <span class="text" >
+                <strong>${name}</strong>: ${msg}
+            </span>
+            <span class="muted">
+                ${new Date().toDateString()}
+            </span>
+        </div>
+        `;
+        messages.innerHTML += content
+    };
+
+    socketio.on('message', (data) => {
+        createMessage(data.name, data.message)
+    })
+
+    function sendMessage() {
+        const message = document.getElementById('message');
+        if (message.value == '') return;
+        socketio.emit('message', {data: message.value});
+        message.value = '';
+    };
+
+    var input = document.getElementById("message");
+    input.addEventListener("keypress", function(event) {
+    // If the user click the "Enter" key
+    if (event.key === "Enter") {
+        event.preventDefault();
+        document.getElementById("send-btn").click();
+    }
+    });
+
+</script>
+
+{% for msg in messages %}
+<script type="text/javascript" >
+    createMessage("{{msg.name}}", "{{msg.message}}")
+</script>
+{% endfor %}
+
+
+{% endblock %}

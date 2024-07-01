@@ -1,0 +1,49 @@
+.show-database label {
+    font-size: 22px;
+}
+
+.show-database input {
+    max-width: 12vw;
+    padding-right: 35px;
+    min-height: 3vh;
+}
+.show-database button {
+    max-width: 8vw;
+    min-height: 3.5vh;
+}
+@media only screen and (max-width: 600px) { /* For mobile devices */
+    .show-database input {
+        font-size: 10px;
+        font-stretch: condensed;
+    }
+    .show-database button {
+        min-width: 15vw;
+    }
+}
+
+.nav {
+    display: flex;
+    justify-content: baseline;
+    align-items: center;
+}
+.nav p {
+    font-size: 20px;
+    padding-right: 3vw;
+}
+
+.msg {
+    display: flex;
+}
+.msg p {
+    padding-right: 1.5px;
+    margin-bottom: -2px;
+}
+.msg-p1 { /* Designing the database filter */
+    color: #610099;
+}
+.msg-p2 {
+    color: #610099;
+}
+.msg-p3 {
+    color: #610099;
+}

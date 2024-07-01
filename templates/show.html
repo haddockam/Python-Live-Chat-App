@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block title %}Database{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="/static/css/show.css" />
+{% endblock %}
+
+{% block body %}
+<div class="nav" >
+        <p>Data Base Center</p>
+        <a href="/" >Back to Home Page</a>
+</div>
+<div class="show-database" >
+<form method="post" >
+        <label>Filter by room number</label>
+        <input type="text" placeholder="room number" id="filter" name="filter" />
+        <button type="submit" >submit</button>
+        <p style="font-size: 18.5px; color: crimson;" >"to refresh the filter, press submit"</p>
+        <label>Delete room:</label>
+        <input type="text" placeholder="room number" name="filter_del" />
+        <button type="submit">submit</button>
+        <hr>
+</form>
+{% for item in values %}
+        {% if item.messages != '' %}
+                {% if not room_filter %} <!-- Database without filter -->
+                        <div class="msg" >
+                        <p class="msg-p1">room code:</p><p> {{item.code}}, </p><p class="msg-p2">user:</p><p> {{item.user}},</p> <p class="msg-p3">messages: </p><p>{{item.messages}}</p>
+                        </div>
+                {% endif %}
+        {% endif %}
+{% endfor %}
+{% for item in values %}
+        {% if item.messages != '' %}
+                {% if room_filter %}
+                        {% if item.code == room_filter %} <!-- Database with filter -->
+                                <div class="msg" >
+                                <p class="msg-p1">room code:</p><p> {{item.code}}, </p><p class="msg-p2">user:</p><p> {{item.user}},</p> <p class="msg-p3">messages: </p><p>{{item.messages}}</p>
+                                </div>
+                        {% endif %}
+                {% endif %}
+        {% endif %}
+{% endfor %}
+</div>
+{% endblock %}

@@ -1,24 +1,56 @@
-{% extends 'base.html' %} {% block content %}
-<form method="post" class="buttons">
-  <h3>Enter The Chat Room</h3>
-  <div>
-    <label>Name:</label>
-    <input
-      type="text"
-      placeholder="Pick a name!"
-      name="name"
-      value="{{name}}"
-    />
-  </div>
-  <div class="join">
-    <input type="text" placeholder="Room Code" name="code" value="{{code}}" />
-    <button type="submit" name="join">Join a Room</button>
-  </div>
-  <button type="submit" name="create" class="create-btn">Create a Room</button>
-  {% if error %}
-  <ul>
-    <li>{{error}}</li>
-  </ul>
-  {% endif %}
-</form>
+{% extends 'base.html' %}
+
+{% block title %}Home Page{% endblock %}
+{% block style %}<link rel="stylesheet" href="/static/css/home.css" >{% endblock %}
+
+{% block body %}
+<div class="whole-page" >
+    <form action="#" method="post">
+    <div class="home" >
+        <div class="welcome" >
+            <img src="/static/images/icons8-white.png" />
+            <h2>Login Box</h2>
+        </div>
+        <div class="login-box">
+            <label>Name:</label>
+            <input type="text" placeholder="enter your name" name="name" value="{{name}}" />
+        </div>
+        <div class="join" >
+            <button type="button" id="join-btn" onClick="showInput()" >Join a Room</button>
+            <input type="text" id="inputField" placeholder="room code" name="code" value="{{code}}" />
+            <button type="submit" id="submit-btn" name="join" >Join The Room</button>
+        </div>
+        <div class="create" >
+            <button type="submit" name="create" >create a room</button>
+        </div>
+        <div class="history" >
+            <a href="/show" >History</a>
+        </div>
+    </div>
+    {% if error %}
+        <div class="error" >
+            <ul>
+                <li>{{error}}</li>
+            </ul>
+        </div>
+    {% endif %}
+    </form>
+</div>
+<div class="created" >
+    <a href="https:/github.com/haddockam" target="_blank">created by haddock</a>
+</div>
+{% endblock %}
+
+{% block javascript %}
+<script>
+    function showInput() {
+        document.getElementById('inputField').style.display = 'flex';
+
+        var button = document.getElementById('join-btn');
+        button.parentNode.removeChild(button);
+
+        document.getElementById('submit-btn').style.display = 'flex';
+    }
+
+</script>
 {% endblock %}

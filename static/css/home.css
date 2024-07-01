@@ -1,0 +1,176 @@
+body {
+    background-color: #623ea5; /* For browsers that don't support gradients */
+    background-image: linear-gradient(to left,#4070d8,#623ea5);
+}
+.home {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+}
+.welcome {
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    
+}
+.login-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 80px;
+    gap: 13px;
+}
+.login-box label {
+    font-size: 25px;
+    color: white;
+    max-width: 15vw;
+}
+.login-box input {
+    padding-right: 130px;
+    padding-left: 8px;
+    border: none;
+    border-radius: 10px;
+    margin: -5px;
+    font-size: 17px;
+    max-width: 35vw;
+}
+.join {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 15px;
+    gap: 5px;
+}
+.join button {
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    width: 440px;
+    height: 40px;
+    font-size: 20px;
+    max-width: 95vw;
+}
+.join button:hover {
+    background-color: #623ea5;
+    color: whitesmoke;
+}
+.join input {
+    display: none;
+    width: 200px;
+    height: 40px;
+    border: none;
+    padding-left: 5px;
+    border-radius: 10px;
+    font-size: 17px;
+    max-width: 45vw;
+}
+.join #submit-btn {
+    justify-content: center;
+    max-width: 45vw;
+}
+#submit-btn {
+    align-items: center;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    width: 440px;
+    height: 40px;
+    font-size: 20px;
+}
+#submit-btn:hover {
+    background-color: #623ea5;
+    color: whitesmoke;
+}
+
+#submit-btn {
+    display: none;
+    animation: openbutton 1s forwards;
+}
+
+@keyframes openbutton {
+    0% {
+        display: none;
+        width: 0;
+    }
+    100% {
+        display: flex;
+        width: 210px;  /* Adjust height as needed */
+    }
+}
+
+#inputField {
+    display: none;
+    animation: openInput 0.8s forwards;
+}
+
+@keyframes openInput {
+    0% {
+        display: none;
+        width: 0;
+    }
+    100% {
+        display: flex;
+        width: 210px;  
+    }
+}
+.create button {
+    margin-top: 10px;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    width: 440px;
+    height: 40px;
+    font-size: 20px;
+    max-width: 95vw;
+}
+.create button:hover {
+    background-color: #623ea5;
+    color: whitesmoke;
+}
+.error {
+    color: black;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    font-size: 17px;
+}
+.history {
+    padding-top: 10px;
+}
+.history a {
+    font-size: 20px;
+    margin-left: 290%;
+    text-decoration: none;
+    color: black;
+}
+.history a:hover {
+    text-decoration: underline;
+    color: white;
+}
+.created {
+    position: absolute;
+    bottom: 4px;
+}
+.created a {
+    color: black;
+}
+.created a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+@media only screen and (max-width: 600px) { /* For mobile devices */
+    .history {
+        margin-right: 20%;
+    }
+    .login-box {
+        gap: 25px;
+    }
+}
