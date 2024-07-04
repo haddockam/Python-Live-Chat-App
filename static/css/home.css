@@ -154,17 +154,6 @@ body {
     text-decoration: underline;
     color: white;
 }
-.created {
-    position: absolute;
-    bottom: 4px;
-}
-.created a {
-    color: black;
-}
-.created a:hover {
-    color: white;
-    text-decoration: none;
-}
 
 @media only screen and (max-width: 600px) { /* For mobile devices */
     .history {
